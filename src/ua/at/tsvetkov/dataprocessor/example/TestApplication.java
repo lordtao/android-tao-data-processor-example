@@ -7,29 +7,23 @@ import android.app.Application;
 
 public class TestApplication extends Application {
 
-	/*
-	 * (non-Javadoc)
-	 * @see android.app.Application#onCreate()
-	 */
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		AppConfig.init(this);
-		initDataProcessor();
-	}
+   /*
+    * (non-Javadoc)
+    * @see android.app.Application#onCreate()
+    */
+   @Override
+   public void onCreate() {
+      super.onCreate();
+      AppConfig.init(this);
+      initDataProcessor();
+   }
 
-	/**
-	 * Example of Data Processor init
-	 */
-	private void initDataProcessor() {
-		DataProcessorConfiguration configuration = DataProcessorConfiguration
-				.getBuilder()
-				.setHost("mysafeinfo.com")
-				.setLogEnabled(true)
-				.setShowProcessingTime(true)
-				.build();
-		DataProcessor.getInstance().init(configuration);
-	}
-
+   /**
+    * Example of Data Processor init
+    */
+   private void initDataProcessor() {
+      DataProcessorConfiguration configuration = DataProcessorConfiguration.getBuilder().setHost("mysafeinfo.com").setLogEnabled(true).setShowProcessingTime(true).build();
+      DataProcessor.getInstance().init(configuration);
+   }
 
 }
