@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import ua.at.tsvetkov.dataprocessor.interfaces.InputStreamDataInterface;
+import ua.at.tsvetkov.data_processor.interfaces.InputStreamDataInterface;
 import ua.at.tsvetkov.util.Log;
 
 public class PrintArray implements InputStreamDataInterface {

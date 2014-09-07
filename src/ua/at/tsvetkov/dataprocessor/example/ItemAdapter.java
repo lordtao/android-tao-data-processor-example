@@ -2,6 +2,7 @@ package ua.at.tsvetkov.dataprocessor.example;
 
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +21,12 @@ public class ItemAdapter extends BaseAdapter {
       inflater = LayoutInflater.from(activity);
    }
 
-   public void init(final Object obj) {
+   public void init(final ItemArray itemArray) {
       activity.runOnUiThread(new Runnable() {
 
          @Override
          public void run() {
-            data = ((ItemArray) obj).array;
+            data = itemArray.array;
             notifyDataSetChanged();
          }
       });
@@ -47,6 +48,7 @@ public class ItemAdapter extends BaseAdapter {
       return position;
    }
 
+   @SuppressLint("InflateParams")
    @Override
    public View getView(int position, View convertView, ViewGroup parent) {
       InfoHolder holder = new InfoHolder();

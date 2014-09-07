@@ -1,13 +1,12 @@
 package ua.at.tsvetkov.dataprocessor.example;
 
-import java.io.IOException;
-
 import org.apache.http.HttpStatus;
 
-import ua.at.tsvetkov.dataprocessor.DataProcessor;
-import ua.at.tsvetkov.dataprocessor.Scheme;
-import ua.at.tsvetkov.dataprocessor.requests.GetRequest;
-import ua.at.tsvetkov.dataprocessor.requests.Request;
+import ua.at.tsvetkov.data_processor.DataProcessor;
+import ua.at.tsvetkov.data_processor.ProcessingCentre;
+import ua.at.tsvetkov.data_processor.Scheme;
+import ua.at.tsvetkov.data_processor.requests.GetRequest;
+import ua.at.tsvetkov.data_processor.requests.Request;
 import ua.at.tsvetkov.util.Log;
 import android.app.Activity;
 import android.os.Bundle;
@@ -52,20 +51,15 @@ public class AcMain extends Activity {
       DataProcessor.getInstance().executeAsync(request, PrintArray.class);
    }
 
-   private DataProcessor.Callback callback = new DataProcessor.Callback() {
+   private ProcessingCentre.Callback<ItemArray> callback = new ProcessingCentre.Callback<ItemArray>() {
 
                                               @Override
-                                              public void onFinish(final Object obj, final int what) {
+                                              public void onFinish(ItemArray items, int what) {
                                                  acMainProgressLayout.setVisibility(View.GONE);
                                                  if (what == HttpStatus.SC_OK) {
-                                                    adapter.init(obj);
+                                                    adapter.init(items);
                                                  } else {
-                                                    Exception ex = (Exception) obj;
-                                                    if (ex instanceof IOException) {
-                                                       Log.e("IO Error", ex);
-                                                    } else {
-                                                       Log.e("Error", ex);
-                                                    }
+                                                    Log.e("Error, What=" + what);
                                                  }
                                               }
                                            };

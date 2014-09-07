@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.json.JSONArray;
 
-import ua.at.tsvetkov.dataprocessor.interfaces.StringDataInterface;
+import ua.at.tsvetkov.data_processor.interfaces.StringDataInterface;
 
 public class ItemArray implements StringDataInterface {
 
