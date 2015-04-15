@@ -15,13 +15,7 @@ public class TestApplication extends Application {
    public void onCreate() {
       super.onCreate();
       AppConfig.init(this);
-      initDataProcessor();
-   }
-
-   /**
-    * Example of Data Processor init
-    */
-   private void initDataProcessor() {
+      // Example of Data Processor init
       DataProcessorConfiguration configuration = DataProcessorConfiguration.getBuilder().setHost("mysafeinfo.com").setLogEnabled(true).setShowProcessingTime(true).build();
       DataProcessor.getInstance().init(configuration);
    }
