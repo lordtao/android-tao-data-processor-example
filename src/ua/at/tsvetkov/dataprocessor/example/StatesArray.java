@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import ua.at.tsvetkov.data_processor.interfaces.InputStreamDataInterface;
 import ua.at.tsvetkov.util.Log;
 
-public class PrintArray implements InputStreamDataInterface {
+public class StatesArray implements InputStreamDataInterface {
 
    public String src = "Empty";
 

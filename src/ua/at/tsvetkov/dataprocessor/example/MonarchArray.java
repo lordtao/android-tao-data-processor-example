@@ -6,15 +6,15 @@ import org.json.JSONArray;
 
 import ua.at.tsvetkov.data_processor.interfaces.StringDataInterface;
 
-public class ItemArray implements StringDataInterface {
+public class MonarchArray implements StringDataInterface {
 
-   public ArrayList<Item> array = new ArrayList<Item>();
+   public ArrayList<Monarch> array = new ArrayList<Monarch>();
 
    @Override
    public void fillFromString(String src) throws Exception {
       JSONArray jsonArray = new JSONArray(src);
       for (int i = 0; i < jsonArray.length(); i++) {
-         Item item = new Item(jsonArray.getJSONObject(i));
+         Monarch item = new Monarch(jsonArray.getJSONObject(i));
          array.add(item);
       }
    }

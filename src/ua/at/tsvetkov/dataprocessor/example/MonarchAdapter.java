@@ -10,18 +10,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class ItemAdapter extends BaseAdapter {
+public class MonarchAdapter extends BaseAdapter {
 
-   public ArrayList<Item> data = new ArrayList<Item>();
+   public ArrayList<Monarch> data = new ArrayList<Monarch>();
    private Activity       activity;
    private LayoutInflater inflater;
 
-   public ItemAdapter(Activity activity) {
+   public MonarchAdapter(Activity activity) {
       this.activity = activity;
       inflater = LayoutInflater.from(activity);
    }
 
-   public void init(final ItemArray itemArray) {
+   public void init(final MonarchArray itemArray) {
       activity.runOnUiThread(new Runnable() {
 
          @Override
@@ -62,7 +62,7 @@ public class ItemAdapter extends BaseAdapter {
       } else {
          holder = (InfoHolder) convertView.getTag();
       }
-      Item item = data.get(position);
+      Monarch item = data.get(position);
       holder.name.setText(item.nm);
       holder.city.setText(item.cty);
       holder.house.setText(item.hse);
